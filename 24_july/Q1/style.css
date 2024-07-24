@@ -1,0 +1,33 @@
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+#heading{
+    color: rgb(240, 115, 115);
+    font-size: 24px; 
+    background: red;
+}
+#samplepara{
+    background-color: yellow; 
+    padding: 10px;
+}
+#section1{
+    border: 1px solid black;
+}
+#section2{
+    border: 1px solid black; 
+    background: red;
+}
+.subheading{
+    color: blue;
+}
+#centered_text{
+    text-align: center;
+}
+.item1{
+    font-weight: bold;
+}
+.item2{
+    font-weight: italic;
+}
