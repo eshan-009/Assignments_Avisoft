@@ -54,6 +54,8 @@ nav>a{
     padding: 4rem;
     animation: 2s ease slidefromleft;
 }
+
+
 #lefthero>img{
     border-radius: 100%;
     height: 4rem;
@@ -62,6 +64,13 @@ nav>a{
    
 }
 #lefthero>h1{
+    font-size: 5rem;
+    text-wrap:wrap;
+    text-align: center;
+    font-family:monospace;
+}
+#lefthero>h2{
+    display: none;
     font-size: 5rem;
     text-wrap:wrap;
     text-align: center;
@@ -135,11 +144,11 @@ nav>a{
     font-weight: 200;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
-#lowerleft>li{
+/* #lowerleft>li{
     font-size: 1rem;
     font-weight: 100;
     font-family: "Montserrat", sans-serif;
-}
+} */
 #previouscom{
     font-size: 1.2rem;
     font-weight: 100;
@@ -192,7 +201,7 @@ nav>a{
 #formBigcontainer{
     height: 100%;
     width: 100%;
-    overflow: hidden;
+   overflow: scroll;
     /* background-color: #ea9fae; */
     /* margin: 0 auto; */
     overflow-x: hidden;
@@ -384,9 +393,6 @@ form>div>p{
     left: -0.03rem;
     /* transform: translateX(-10%); */
 }
-option{
-
-}
 #about{
     height: 100vh;
     width: 100vw;
@@ -519,4 +525,173 @@ button{
     align-items: center;
     border-radius: 3rem;
   
+}
+@media screen and (max-width:1200px) {
+    #hero{
+        flex-direction: column;
+        align-items: center;
+    }
+    #lefthero>h1{
+     font-size: 3rem;
+     width: 22rem;
+    }
+    #righthero>img{
+        height: 15rem;
+        width: 15rem;        
+    }
+    #lefthero>p{
+        font-size: 1rem;  
+        width: 22rem;   
+    }
+
+    .lower{
+        flex-direction: column;
+        height: auto;
+
+    }
+    #lowerleft{  
+        width: 100%;
+        height: auto;
+        margin-bottom: 1rem;
+        padding: 0 2rem 0 2rem;
+    }
+    
+    #lowerleft>h4{
+        font-size: 3rem;
+     }
+  
+    
+    #lowerright{
+        width: 100%;
+        height: auto;
+        flex-direction: column;
+       padding: 0 2rem 0 2rem;
+       
+    }
+    #lowerright>ul>li{
+        font-size: 0.7rem;
+    }
+    #lowerright>ul{
+        padding-left: 3rem;
+        
+    }
+    #lowerright>h4{
+        font-size: 3rem;
+      }
+    #lowerright>h5{
+        font-size: 1.2rem;
+    }
+
+    /* ABOUT SECTION */
+
+    
+    #aboutlowerleft{
+        width: 60%; 
+    }
+    
+    
+    #aboutsmallcontainer>div>img{
+    width: 20rem;
+    height: 20rem;
+    border-radius: 2rem;
+    }
+
+    
+    
+}
+@media (max-width:1000px){
+ 
+    #aboutsmallcontainer{
+        margin-bottom: 0; 
+        height: auto;        
+    }
+    #aboutlowerleft{
+        width: 100%; 
+        padding: 0 1rem 0 1rem;
+        
+    }
+    #aboutlowerright{
+        padding: 0 2.5rem 0 2.5rem;
+    }
+    #aboutimage{
+        display: none;
+    }
+
+}
+@media (max-width:500px) {
+    #Bigcontainer>nav>a{
+        font-size: 1rem;
+    }
+    #righthero>img{
+        display: none;     
+    }
+    #lefthero>h1{
+        font-size: 3rem;
+        width: 22rem;
+       }
+       #lefthero>p{
+        font-size: 1rem;
+        width: 18rem;
+       }
+
+       #lowerleft>h4{
+        font-size: 2rem;
+     }
+     #previouscom{
+        font-size: 0.8rem;
+ 
+    }
+ 
+     #lowerright>h4{
+        font-size: 2rem;
+      }
+    #lowerright>h5{
+        font-size: 1.2rem;
+    }
+
+    /* About SECTION */
+
+    #aboutsmallcontainer{
+        margin-bottom: 0;          
+       height: auto;   
+    }
+    #aboutlowerleft{
+        width: 100%;
+        padding: 0 1rem 0 1rem;
+    }
+    #aboutlowerleft>h4{
+        font-size: 2rem;
+
+    }
+    #aboutlowerright{
+        padding: 0 2.5rem 0 2.5rem;
+      
+    }
+    #aboutlowerright>h4{
+        font-size: 2rem;
+        margin-top: 0.4rem;
+        /* border: 2px solid gray; */
+    }
+    #aboutimage{
+        display: none;
+    }
+
+    #fullname{
+      
+        flex-direction: column;
+       
+    }
+    .white{
+        font-size: 3rem;
+    }
+  
+   
+}
+@media (min-width:500px) and (max-width:700px) {
+    .input{
+       width: 14rem;
+    }
+ 
+ 
+
 }
