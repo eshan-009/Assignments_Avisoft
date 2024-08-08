@@ -3,7 +3,7 @@ var start = parseInt(prompt("Enter 1 to start the game "));
 var guess;
 var guesscount =0;
 
-while(start)
+while(start===1)
 {
     const random = Math.floor(Math.random()*100)
 console.log(random);
@@ -38,6 +38,8 @@ console.log(random);
     }while(guess!==random && guess<=100);
 
     start =0;
+    guess=0;
+    guesscount=0;
     
     start = parseInt(prompt("Enter 1 to play again"));
 }
