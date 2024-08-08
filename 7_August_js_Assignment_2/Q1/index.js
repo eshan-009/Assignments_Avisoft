@@ -1,18 +1,22 @@
-let value = prompt("Enter any value to check if truthy or falsy");
+var value ;
+
+let choice = parseInt(prompt("Enter 1 if you want to enter string\nEnter 2 if you want to enter Number"));
 
 
-
-var res;
-
-console.log(value.length)
-if(value.length>2)
+if(choice === 1)
 {
-      res = Boolean(value);
+   value = prompt("Enter any value to check if truthy or falsy")
+   console.log("value",Boolean(value));
 }
-else{ 
+else
+{
+   value= parseInt(prompt("Enter any value to check if truthy or falsy"))
+}
 
- res = Boolean(Number(value));
-    }
+
+var res = Boolean(value);
+
+    
 
 
  if(res)
