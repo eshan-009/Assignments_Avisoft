@@ -1,15 +1,19 @@
-var start = parseInt(prompt("Enter 1 to start the game "));
+alert("Welcome to the Game");
+var start=1;
 
-var guess;
+var guess=-1;
 var guesscount =0;
 
-while(start===1)
+do
 {
-    const random = Math.floor(Math.random()*100)
-console.log(random);
     
-    do{
-        guess = parseInt(prompt("Guess the number between 0 to 100 \nEnter number greater than 100 to stop"));
+const random = Math.floor(Math.random()*100)
+console.log(random);
+
+while(guess!==random)
+{
+    
+        guess = parseInt(prompt("Guess the number between 0 to 100"));
         guesscount++;
         if(guess === random)
         {
@@ -27,19 +31,15 @@ console.log(random);
             {
                 alert("Far")
             }
-            else if(guess>100)
-            {
-                alert("Game Terminated");
-            }
             else{
                 alert("Too Far")
             }
     
-    }while(guess!==random && guess<=100);
+    }
 
     start =0;
     guess=0;
     guesscount=0;
     
     start = parseInt(prompt("Enter 1 to play again"));
-}
+}while(start===1);
