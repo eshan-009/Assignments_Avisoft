@@ -45,10 +45,10 @@ function listAvailableBooks(){
 
 function searchBook(title){
     const librariran = JSON.parse(localStorage.getItem("library"))
-    const bookdata = librariran.find((item)=>item.title===title);
-    if(bookdata)
+  
+    if(librariran)
     {
-        console.log(bookdata)
+        console.log(librariran)
     }
     else 
     {
