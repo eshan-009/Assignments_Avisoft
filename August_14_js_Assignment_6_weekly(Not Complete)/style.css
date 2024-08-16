@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding:0;
+    box-sizing: border-box;
+}
+
+[searchinput]{
+    all: unset;
+    border: 2px solid gray;
+    border-radius: 2rem;
+    height: 3rem;
+}
+.addBook
+{ 
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+}
+
+form > input{
+    border-radius: 0.5rem;
+    height: 2rem;
+}
+.booklist{
+    display: flex;
+    flex-wrap: wrap;
+}
+.listitem{
+border: 2px solid green;
+width: 20rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+font-size: 1.3rem;
+text-wrap: pretty;
+
+} 
+
+[tabs]{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+.active{
+    display: block;
+}
+
+
