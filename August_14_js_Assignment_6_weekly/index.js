@@ -5,28 +5,62 @@ const searchinput = document.querySelector("[searchinput]");
 const searchbutton = document.querySelector("[searchbutton]")
 const searchresult = document.querySelector("[searchresult]")
 const searchbox = document.querySelector("[searchbox]");
+const addbooktab = document.querySelector("[booktab]")
 const tab1 = document.querySelector("[tab1]");
 const tab2 = document.querySelector("[tab2]");
 const tab3 = document.querySelector("[tab3]");
 const library = [];
-let currentTab = tab1;
-if(currentTab !== tab1)
+let currentTab=tab1;
+toggle(currentTab);
+// booklist.classList.add("active");
+// console.log("cu",currentTab);
+function toggle(tab)
 {
-    booklist.classList.remove("active");
+    tab1.classList.remove("current");
+    tab2.classList.remove("current");
+    tab3.classList.remove("current");
+    tab.classList.add("current");
+    if(tab === tab1)
+        {
+            searchbox.classList.remove("active");
+            addbooktab.classList.remove("active")
+            booklist.classList.add("active");
+            currentTab=tab1;
+          
+        }
+        else if(tab === tab2)
+        {
+            
+            addbooktab.classList.remove("active")
+            booklist.classList.remove("active");
+            searchbox.classList.add("active");
+            currentTab=tab2;
+          
+        }
+        else
+        {
+        
+            booklist.classList.remove("active");
+            searchbox.classList.remove("active");
+            addbooktab.classList.add("active");
+            currentTab=tab3;
+            console.log("cu",currentTab);
+        }
 }
-else if(currentTab !== tab2)
-{
-    searchbox.classList.remove("active");
-}
-else
-{
-
-}
-
+tab1.addEventListener("click",()=>{
+    currentTab = tab1;
+    toggle(currentTab);
+})
+tab2.addEventListener("click",()=>{
+    toggle(tab2);
+})
+tab3.addEventListener("click",()=>{
+    toggle(tab3);
+})
 // localStorage.setItem("library",JSON.stringify(library));
 // localStorage.clear()
 function addBook(id, title, author){
-    const librariran = JSON.parse(localStorage.getItem("library"))
+    let librariran = JSON.parse(localStorage.getItem("library"))
     if(!librariran)
     {
         librariran=[];
@@ -118,7 +152,7 @@ function searchBook(title){
 }
 
 searchbutton.addEventListener("click",(e)=>{
-    e.preventDefault();
+    // e.preventDefault();
     const text = searchinput.value;
     let searchdata = searchBook(text);
     console.log(searchdata)
@@ -126,13 +160,20 @@ searchbutton.addEventListener("click",(e)=>{
     let author = searchdata.author;
     let id = searchdata.id;
     let isBorrowed = searchdata.isBorrowed;
+    var listitem;
+    
+    searchresult.children[0]?searchresult.children[0].innerHTML = `${title} &nbsp  &nbsp &nbsp by ${author} `  :listitem = document.createElement("li");
+    
 
-    const listitem = document.createElement("li");
-    listitem.classList.add("listitem");
-    listitem.innerHTML= `${title} &nbsp  &nbsp &nbsp by ${author} &nbsp&nbsp&nbsp BookId: ${id}`
+    if(listitem)
+    {
+        listitem.classList.add("listitem");
+    listitem.innerHTML= `${title} &nbsp  &nbsp &nbsp by ${author} ` ;
+    }
+     
     const button = document.createElement("button");
     button.innerHTML = `${isBorrowed ? "Return Book" : "Borrow Book"}`;
-    button.style.cssText = `${isBorrowed ? "background-color: #E94F37" : "background-color: #3BB273"}; border-radius: 1rem;height: 4rem ;width: 11rem; display:flex;justify-content:center ;align-items: center;font-size: 1.5rem;`
+    button.style.cssText = `${isBorrowed ? "background-color: #E94F37" : "background-color: #3BB273"}; border-radius: 1rem;height: 2.6rem ;width: 7rem; display:flex;justify-content:center ;align-items: center;font-size: 1rem; color:#FFFFFF;`
 
     button.addEventListener("click",(e)=>{
         e.preventDefault();
@@ -147,10 +188,22 @@ searchbutton.addEventListener("click",(e)=>{
             requiredbook.isBorrowed = true;
         }
         localStorage.setItem("library",JSON.stringify(librariran));
+        currentTab=tab2;
         location.reload();
+       
+       
     })
-    listitem.appendChild(button);
+   
+    if(listitem)
+    {
+        listitem.appendChild(button);
     searchresult.appendChild(listitem)
+    }
+    else
+    {
+        searchresult.children[0].appendChild(button)
+    }
+    
     
     })
 
@@ -158,10 +211,10 @@ const listbookitem = (text,id,author,isBorrowed)=>{
     
     const listitem = document.createElement("li");
     listitem.classList.add("listitem");
-    listitem.innerHTML= `${text} &nbsp  &nbsp &nbsp by ${author} &nbsp&nbsp&nbsp BookId: ${id}`
+    listitem.innerHTML= `${text} &nbsp  &nbsp &nbsp by ${author} &nbsp&nbsp&nbsp `
     const button = document.createElement("button");
     button.innerHTML = `${isBorrowed ? "Return Book" : "Borrow Book"}`;
-    button.style.cssText = `${isBorrowed ? "background-color: #E94F37" : "background-color: #3BB273"}; border-radius: 1rem;height: 4rem ;width: 11rem; display:flex;justify-content:center ;align-items: center;font-size: 1.5rem;`
+    button.style.cssText = `${isBorrowed ? "background-color: #E94F37" : "background-color: #3BB273"}; border-radius: 1rem;height: 2.6rem ;width: 7rem; display:flex;justify-content:center ;align-items: center;font-size: 1rem; color:#FFFFFF;`
 
     button.addEventListener("click",(e)=>{
         e.preventDefault();
@@ -207,41 +260,8 @@ addbookform.addEventListener("submit",(e)=>{
 });
 
 
+
 listAvailableBooks();
 
-
-
-
-// console.log("START START START START START .....................")
-
-// addBook(1,"Javascript","Vansh")
-// addBook(2,"Nodejs","Siddharth")
-// addBook(3,"MongoDB","Vansh")
-// addBook(4,"React","Eshan")
-
-// listAvailableBooks();
-
-// var librariran = JSON.parse(localStorage.getItem("library"))
-// console.log(librariran);
-
-// console.log(".....................")
-// addBook(5,"Money Midset","Rohit");
-
-// librariran = JSON.parse(localStorage.getItem("library"))
-// console.log(librariran);
-// console.log(".....................")
-// borrowBook(3);
-// listAvailableBooks();
-// console.log(".....................")
-// borrowBook(3);
-// listAvailableBooks();
-// console.log(".....................")
-// returnBook(3);
-// listAvailableBooks();
-// console.log(".....................")
-// searchBook("React")
-// console.log(".....................")
-
-// console.log("END END END END END .....................")
 
 
