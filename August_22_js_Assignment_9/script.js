@@ -18,12 +18,27 @@ class BankAccount{
         return this.#balance
     }
     deposit(deposit_amount){
-        const newBalance = this.#balance+deposit_amount;
-        this.#balance = newBalance;
+        if(deposit_amount>0)
+        {
+            const newBalance = this.#balance+deposit_amount;
+            this.#balance = newBalance;
+        }
+        else
+        {
+            alert("Deposit Amount should be More than 0");
+        }
     }
     withdraw(withdraw_amount){
-        const newBalance = this.#balance - withdraw_amount;
-        this.#balance = newBalance;
+        if(withdraw_amount>0)
+        {
+            const newBalance = this.#balance - withdraw_amount;
+            this.#balance = newBalance;
+        }
+        else
+        {
+            alert("Withdraw Amount should be More than 0");
+        }
+       
     }
     displayBalance(){
         console.log("Account Balance : ",this.#balance)
@@ -45,13 +60,20 @@ class SavingAccount extends BankAccount{
         this.setBalance(afterintertestBalance) 
     }
     withdraw(withdraw_amount){
+        if(withdraw_amount>0)
+       {
         if(withdraw_amount>=500)
-        {
-            withdraw_amount = withdraw_amount + 50;
-        }
-        const balance = this.getBalance()
-        const newBalance = balance - withdraw_amount;
-        this.setBalance(newBalance);
+            {
+                withdraw_amount = withdraw_amount + 50;
+            }
+            const balance = this.getBalance()
+            const newBalance = balance - withdraw_amount;
+            this.setBalance(newBalance);
+       }
+       else
+       {
+        alert("Withdraw Amount should be More than 0");
+       }
     }
 }
 
@@ -72,7 +94,7 @@ console.log("After first Deposit")
 savingAccountHolder1.displayBalance()
 console.log("\n")
 savingAccountHolder1.withdraw(600)
-console.log("After first withdraw with Penalty of 50 rupees on withdrawing more than 500")
+console.log("After withdraw with Penalty of 50 rupees on withdrawing more than 500")
 savingAccountHolder1.displayBalance()
 console.log("\n")
 savingAccountHolder1.addInterest()
