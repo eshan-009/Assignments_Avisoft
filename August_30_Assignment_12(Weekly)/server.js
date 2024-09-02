@@ -15,7 +15,7 @@ app.get("/", async(req,res)=>{
        
        return res.status(200).json(userdata);
     }
-    else if(!userdata)
+    else if(!userdata && userId)
     {
        return res.status(400).json({
             message : "Enter Valid userId"
