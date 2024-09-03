@@ -1,9 +1,9 @@
 function postValidation(req,res,next){
 const {name,description,price,instock} = req.body
-if(!name || !description || !price || !instock)
+if(!name || !description || !price || price<=0   || !instock)
 {
     return res.status(400).json({
-        message : "Add All Details"
+        message : "Add All Details Properly"+`${price<=0 ? " And Price Cannot be negative":""}`
     })
 }
 next();
@@ -11,10 +11,10 @@ next();
 
 function putValidation(req,res,next){
     const {name,description,price,instock} = req.body
-    if(!name || !description || !price || typeof(instock)!=="boolean")
+    if(!name || !description ||  !price || price<=0  || typeof(instock)!=="boolean")
     {
         return res.status(400).json({
-            message : "Add All Details in proper format"
+            message : "Add All Details in proper format"+`${price<=0 ? " And Price Cannot be negative":""}`
         })
     }
     next();
