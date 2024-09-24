@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.active{
+  transform: scale(1.5);
+  font-weight: bold;
+  color: #7C77B9; 
+
+}
