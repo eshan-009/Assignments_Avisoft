@@ -17,12 +17,12 @@ const Main = () => {
     <div className='w-1/2 h-1/4 border border-gray-400 flex flex-col justify-between  p-4 text-left'>
     <div >
     <input type='radio' name='Exchangeoffer' id='radio1'></input>
-    <label for='radio1'>Buy without Exchange ₹119,900</label>
+    <label htmlFor='radio1'>Buy without Exchange ₹119,900</label>
     </div>
   <div className='bg-gray-400 h-[1px] relative left-0 top-0'></div>
     <div>
     <input type='radio'name='Exchangeoffer' id='radio2'></input>
-    <label for='radio2'>Buy with Exchange up to ₹46,800 off</label>
+    <label htmlFor='radio2'>Buy with Exchange up to ₹46,800 off</label>
     </div>
     </div>
 
