@@ -19,8 +19,7 @@ const LoginForm = () => {
             case "password" :
                     return {...state,password:action.payload}  ;  
         }
-        state.email = action.email
-        state.password = action.password
+    
     }
 
     const [state, dispatch] = useReducer(reducer, initialState);
